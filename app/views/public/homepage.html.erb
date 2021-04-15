@@ -1,1 +1,7 @@
-Welcome to the Homepage
+Yerrrrrrr
+<h2>Latest Post</2>
+
+<% @posts.each do |post| %>
+    <h3><%= link_to post.title, post_path(post) %></h3>
+    <p><%= post.summary %></p>
+<% end %>
