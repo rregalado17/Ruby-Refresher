@@ -1,0 +1,2 @@
+class Catefory < ApplicationRecord
+end

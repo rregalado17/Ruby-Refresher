@@ -1,7 +1,15 @@
-Yerrrrrrr
-<h2>Latest Post</2>
+<% content_for :page_title, "Home" %>
+
+<div class="row">
+    <div class="col-8">
+        <p class="h4"> Latest Posts</p>
 
 <% @posts.each do |post| %>
-    <h3><%= link_to post.title, post_path(post) %></h3>
-    <p><%= post.summary %></p>
+    <%= render partial: "posts/post", locals: { post: post} %>
 <% end %>
+</div>
+<div class="col-4">
+    <p class="h4">About</p> 
+    <p> Some text</p>
+</div>
+</div>
