@@ -2,6 +2,7 @@ class PublicController < ApplicationController
 
     def homepage
         @posts = Post.all
+        @catefories = Catefory.all 
     end
 
     def about

@@ -22,8 +22,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
+    <%= form.label :catefory_id %>
+    <%= form.select :catefory_id, Catefory.all.collect { |c| [c.title, c.id] } %>
   </div>
 
   <div class="field">

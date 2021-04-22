@@ -1,14 +1,16 @@
 class Post < ApplicationRecord
-    validates :title, presence: true 
-    validates :summary, presence: true, length: { maximum: 200 }
-    validates :body, presence: true, length: {minimum: 100 }
+    validates :title, presence: true
+    validates :summary, presence: true
+    #validates :body, presence: true
 
-    def details
-        "This post was created on #{ created_at.strftime("%d %M %Y") }"
-    end
+    belongs_to :catefory 
 
-    def self.total
-        all.size
+    after_create :post_log_message
+
+    private 
+
+    def post_log_message
+        puts "Posts created with an id of #{id} "
     end
 
 end

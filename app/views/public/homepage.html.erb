@@ -11,5 +11,11 @@
 <div class="col-4">
     <p class="h4">About</p> 
     <p> Some text</p>
+
+
+     <p class="h4">Categories</p>
+     <% @catefories.each do |c| %>
+        <p><%= c.title %> - <%= c.total %></p>
+    <% end %>
 </div>
 </div>
