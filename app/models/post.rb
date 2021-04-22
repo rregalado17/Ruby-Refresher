@@ -5,12 +5,16 @@ class Post < ApplicationRecord
 
     belongs_to :catefory 
 
-    after_create :post_log_message
+    after_create :update_total_posts_count
+
+    scope :active, -> { where( active: true )}
+    scope :order_by_latest_first, -> { order( created_at: :desc )}
+    scope :limit_5, -> { limit( 1 )}
 
     private 
 
-    def post_log_message
-        puts "Posts created with an id of #{id} "
+    def update_total_posts_count
+        catefory.increment(:total_count, 1)
     end
 
 end
